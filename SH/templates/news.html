@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+<body>
+    LATEST UPDATES IN YOUR WATCHLIST
+</body>
+
+<section id="blog-block" class="blog single-post">
+	<!-- Main Content start-->
+	<div class="container">
+		<div class="row">
+			<!-- Post Block-->
+			<div class="col-lg-9 col-md-9 col-sm-8 col-xs-12">	
+				{% for company,news in posts.items() %}
+			        <article class="media content-section">
+			          <div class="media-body">
+			            <div class="article-metadata">
+			            </div>
+			            <h2><a class="article-title" href="#">{{ company}}</a></h2>
+			            <p class="article-content">{{ news }}</p>
+			          </div>
+                    </article>
+                    <form method="POST" action="">
+						{{ form.hidden_tag() }}
+						<fieldset class="form-group">
+							<div class="form-group">
+								{{ form.submit(class="btn btn-outline-info") }}
+							</div>
+						</fieldset>
+					</form>
+                
+				{% endfor %}
+            </div>
+		</div>
+	</div>
+</section>
+{% endblock content %}
